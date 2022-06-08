@@ -1,0 +1,1 @@
+Gates in this directory are "without delay".

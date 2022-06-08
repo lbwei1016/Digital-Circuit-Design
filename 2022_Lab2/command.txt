@@ -1,0 +1,46 @@
+// half-sub
+iverilog -o Lab2_half_sub_gatelevel.vvp t_Lab2_half_sub.v Lab2_half_sub_gatelevel.v
+vvp Lab2_half_sub_gatelevel.vvp
+gtkwave Lab2_half_sub_gatelevel.vcd
+
+// full-sub
+iverilog -o Lab2_full_sub.vvp t_Lab2_full_sub.v Lab2_full_sub.v Lab2_half_sub_gatelevel.v
+vvp Lab2_full_sub.vvp
+gtkwave Lab2_full_sub.vcd
+
+// 4-bit RBS
+iverilog -o Lab2_4_bit_sub.vvp t_Lab2_4_bit_sub.v Lab2_4_bit_RBS.v Lab2_full_sub.v Lab2_half_sub_gatelevel.v
+vvp Lab2_4_bit_sub.vvp
+gtkwave Lab2_4_bit_sub.vcd
+
+// 4-bit sub, with BLS gate-level
+iverilog -o Lab2_4_bit_sub.vvp t_Lab2_4_bit_sub.v Lab2_4_bit_RBS.v Lab2_full_sub.v Lab2_half_sub_gatelevel.v Lab2_4_bit_BLS_gatelevel.v
+vvp Lab2_4_bit_sub.vvp
+gtkwave Lab2_4_bit_sub.vcd
+
+// add BLS dataflow
+iverilog -o Lab2_4_bit_sub.vvp t_Lab2_4_bit_sub.v Lab2_4_bit_RBS.v Lab2_full_sub.v Lab2_half_sub_gatelevel.v Lab2_4_bit_BLS_gatelevel.v Lab2_4_bit_BLS_dataflow.v
+vvp Lab2_4_bit_sub.vvp
+gtkwave Lab2_4_bit_sub.vcd
+
+// add BLS behaviroal
+iverilog -o Lab2_4_bit_sub.vvp t_Lab2_4_bit_sub.v Lab2_4_bit_RBS.v Lab2_full_sub.v Lab2_half_sub_gatelevel.v Lab2_4_bit_BLS_gatelevel.v Lab2_4_bit_BLS_dataflow.v Lab2_4_bit_BLS_behavioral.v
+vvp Lab2_4_bit_sub.vvp
+gtkwave Lab2_4_bit_sub.vcd
+
+// converter
+iverilog -o Lab2_converter_4bit.vvp t_Lab2_converter_4bit.v Lab2_converter_4bit_gatelevel.v
+vvp Lab2_converter_4bit.vvp
+gtkwave Lab2_converter_4bit.vcd
+
+// 先測完電路再畫 circuit diagram!!!!!
+
+// converter with dataflow
+iverilog -o Lab2_converter_4bit.vvp t_Lab2_converter_4bit.v Lab2_converter_4bit_gatelevel.v Lab2_converter_4bit_dataflow.v
+vvp Lab2_converter_4bit.vvp
+gtkwave Lab2_converter_4bit.vcd
+
+// converter with behaviroal
+iverilog -o Lab2_converter_4bit.vvp t_Lab2_converter_4bit.v Lab2_converter_4bit_gatelevel.v Lab2_converter_4bit_dataflow.v Lab2_converter_4bit_behavioral.v
+vvp Lab2_converter_4bit.vvp
+gtkwave Lab2_converter_4bit.vcd
